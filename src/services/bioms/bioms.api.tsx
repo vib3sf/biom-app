@@ -28,8 +28,12 @@ const getTaxId = async (index: number): Promise<number> =>
 const getAbundanceScore = async (index: number): Promise<number> =>
   biomJson.data[index * 3 + 1][2];
 
-const getRelativeAbundance = async (index: number): Promise<string> =>
-  `${(biomJson.data[index * 3][2] * 100).toFixed(2)}%`;
+const getRelativeAbundance = async (index: number): Promise<string> => {
+  const relativeAbundance = biomJson.data[index * 3][2] * 100;
+  return relativeAbundance < 0.01
+    ? "<0.01%"
+    : `${relativeAbundance.toFixed(2)}%`;
+};
 
 const getUniqeMatchesFrequency = async (index: number): Promise<number> =>
   biomJson.data[index * 3 + 2][2];
