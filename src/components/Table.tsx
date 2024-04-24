@@ -13,9 +13,9 @@ export function Table({ search }: { search: string }) {
   }, [biom]);
 
   return (
-    <>
+    <div className="table-wrap">
       {biomLoad ? (
-        <table className="table-wrap">
+        <table>
           <thead>
             <tr>
               <th>Name</th>
@@ -38,6 +38,6 @@ export function Table({ search }: { search: string }) {
       ) : (
         <p>Loading...</p>
       )}
-    </>
+    </div>
   );
 }
