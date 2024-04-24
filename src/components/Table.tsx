@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { biomApi } from "../services/bioms/bioms.api";
 import { BiomDto } from "../services/bioms/bioms.dto";
+import { Row } from "./Row";
 
 export function Table() {
   const [bioms, setBioms] = useState<Array<BiomDto>>([]);
@@ -26,14 +27,8 @@ export function Table() {
             <th>Relative abundance</th>
             <th>Unique matches frequency</th>
           </tr>
-          {bioms.map((biom, index) => (
-            <tr>
-              <td>{biom.name}</td>
-              <td>{biom.taxId}</td>
-              <td>{biom.abundanceScore}</td>
-              <td>{biom.relativeAbundance}</td>
-              <td>{biom.uniqeMatchesFrequency}</td>
-            </tr>
+          {bioms.map((biom: BiomDto) => (
+            <Row biom={biom}></Row>
           ))}
         </table>
       ) : (

@@ -5,8 +5,8 @@ function App() {
     return (
     <div className="App">
       <header className="App-header">
-        <Table></Table>
       </header>
+      <Table></Table>
     </div>
   );
 }
