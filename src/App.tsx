@@ -1,28 +1,33 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { api } from "./services/api";
+import { biomApi } from "./services/bioms/bioms.api";
+import { BiomDto } from "./services/bioms/bioms.dto";
 
 function App() {
-  const [bioms, setBioms] = React.useState<Array<Array<number | string>>>([[]]);
+  const [bioms, setBioms] = React.useState<Array<BiomDto>>([]);
+  const [biomsLoading, setBiomsLoading] = React.useState(false);
 
   useEffect(() => {
     async function fetchAllRows() {
-      setBioms(await api.getAllRows());
+      setBioms(await biomApi.getAllRows());
     }
-    setTimeout(fetchAllRows, 5000);
-  });
+
+    console.log(bioms);
+    if(bioms.length !== 0) {
+      setBiomsLoading(true);
+    }
+    else
+      setTimeout(fetchAllRows, 1000);
+  }, [bioms]);
 
   return (
     <div className="App">
       <header className="App-header">
-        {bioms.map((biom, index) => (
+        {biomsLoading ? bioms.map((biom, index) => (
           <p key={index}>
-            {index}: 
-            {biom.map((row, row_index) => (
-              <span key={row_index}>{row} </span>
-            ))}
+            {biom.name} {biom.taxId} {biom.relativeAbundance}
           </p>
-        ))}
+        )) : <p>Loading...</p>}
       </header>
     </div>
   );
