@@ -1,13 +1,13 @@
 import { BiomDto } from "../services/bioms/bioms.dto";
 
-export function Row({ biom }: { biom: BiomDto }) {
+export function Row({ biomElem }: { biomElem: BiomDto }) {
   return (
     <tr>
-      <td>{biom.name}</td>
-      <td>{biom.taxId}</td>
-      <td>{biom.abundanceScore}</td>
-      <td>{biom.relativeAbundance}</td>
-      <td>{biom.uniqeMatchesFrequency}</td>
+      <td>{biomElem.name}</td>
+      <td>{biomElem.taxId}</td>
+      <td>{biomElem.abundanceScore}</td>
+      <td>{biomElem.relativeAbundance}</td>
+      <td>{biomElem.uniqeMatchesFrequency}</td>
     </tr>
   );
 }

@@ -4,21 +4,21 @@ import { BiomDto } from "../services/bioms/bioms.dto";
 import { Row } from "./Row";
 
 export function Table() {
-  const [bioms, setBioms] = useState<Array<BiomDto>>([]);
-  const [biomsLoad, setBiomsLoad] = useState(false);
+  const [biom, setBiom] = useState<Array<BiomDto>>([]);
+  const [biomLoad, setBiomLoad] = useState(false);
 
   useEffect(() => {
     async function fetchAllRows() {
-      setBioms(await biomApi.getAllRows());
+      setBiom(await biomApi.getAllRows());
     }
 
-    if (bioms.length !== 0) setBiomsLoad(true);
+    if (biom.length !== 0) setBiomLoad(true);
     else setTimeout(fetchAllRows, 1000);
-  }, [bioms]);
+  }, [biom]);
 
   return (
     <>
-      {biomsLoad ? (
+      {biomLoad ? (
         <table>
           <tr>
             <th>Name</th>
@@ -27,8 +27,8 @@ export function Table() {
             <th>Relative abundance</th>
             <th>Unique matches frequency</th>
           </tr>
-          {bioms.map((biom: BiomDto) => (
-            <Row biom={biom}></Row>
+          {biom.map((biomElem: BiomDto) => (
+            <Row biomElem={biomElem}></Row>
           ))}
         </table>
       ) : (
