@@ -1,12 +1,19 @@
+import { useState } from "react";
 import "./App.css";
 import { Table } from "./components/Table";
 
 function App() {
-    return (
+  const [search, setSearch] = useState("");
+  return (
     <div className="App">
       <header className="App-header">
+        <label htmlFor="search"></label>
+        <input
+          onChange={(event) => setSearch(event.target.value.toLowerCase())}
+          id="search"
+        ></input>
       </header>
-      <Table></Table>
+      <Table search={search}></Table>
     </div>
   );
 }

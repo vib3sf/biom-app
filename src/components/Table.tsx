@@ -3,17 +3,13 @@ import { biomApi } from "../services/bioms/bioms.api";
 import { BiomDto } from "../services/bioms/bioms.dto";
 import { Row } from "./Row";
 
-export function Table() {
+export function Table({ search }: { search: string }) {
   const [biom, setBiom] = useState<Array<BiomDto>>([]);
   const [biomLoad, setBiomLoad] = useState(false);
 
   useEffect(() => {
-    async function fetchAllRows() {
-      setBiom(await biomApi.getAllRows());
-    }
-
     if (biom.length !== 0) setBiomLoad(true);
-    else setTimeout(fetchAllRows, 1000);
+    else setTimeout(async () => setBiom(await biomApi.getAllRows()), 1000);
   }, [biom]);
 
   return (
@@ -27,9 +23,11 @@ export function Table() {
             <th>Relative abundance</th>
             <th>Unique matches frequency</th>
           </tr>
-          {biom.map((biomElem: BiomDto) => (
-            <Row biomElem={biomElem}></Row>
-          ))}
+          {biom
+            .filter((biomElem) => biomElem.name.toLowerCase().includes(search))
+            .map((biomElem: BiomDto) => (
+              <Row biomElem={biomElem}></Row>
+            ))}
         </table>
       ) : (
         <p>Loading...</p>
