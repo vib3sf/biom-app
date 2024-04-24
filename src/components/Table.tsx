@@ -15,19 +15,25 @@ export function Table({ search }: { search: string }) {
   return (
     <>
       {biomLoad ? (
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Tax ID</th>
-            <th>Abundance score</th>
-            <th>Relative abundance</th>
-            <th>Unique matches frequency</th>
-          </tr>
-          {biom
-            .filter((biomElem) => biomElem.name.toLowerCase().includes(search))
-            .map((biomElem: BiomDto) => (
-              <Row biomElem={biomElem}></Row>
-            ))}
+        <table className="table-wrap">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Tax ID</th>
+              <th>Abundance score</th>
+              <th>Relative abundance</th>
+              <th>Unique matches frequency</th>
+            </tr>
+          </thead>
+          <tbody>
+            {biom
+              .filter((biomElem: BiomDto) =>
+                biomElem.name.toLowerCase().includes(search)
+              )
+              .map((biomElem: BiomDto) => (
+                <Row biomElem={biomElem}></Row>
+              ))}
+          </tbody>
         </table>
       ) : (
         <p>Loading...</p>

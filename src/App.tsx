@@ -10,6 +10,7 @@ function App() {
         <label htmlFor="search"></label>
         <input
           onChange={(event) => setSearch(event.target.value.toLowerCase())}
+          placeholder="Search..."
           id="search"
         ></input>
       </header>
