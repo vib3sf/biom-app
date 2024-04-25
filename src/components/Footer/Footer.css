@@ -1,0 +1,21 @@
+.App-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  position: fixed;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+}
+
+.App-footer p {
+  text-align: center;
+  margin: 0;
+}
+
+.App-footer img {
+  width: 45px; 
+  height: 45px;
+}
