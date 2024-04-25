@@ -8,7 +8,7 @@ export function Table({ search }: { search: string }) {
   const [biom, setBiom] = useState<Array<BiomDto>>([]);
   const [biomLoad, setBiomLoad] = useState(false);
 
-  const filterBacteria = biom.filter((biomElem: BiomDto) =>
+  const filterBiom = biom.filter((biomElem: BiomDto) =>
     biomElem.name.toLowerCase().includes(search)
   );
 
@@ -20,7 +20,7 @@ export function Table({ search }: { search: string }) {
   return (
     <div className="App-table-wrap">
       {biomLoad ? (
-        filterBacteria.length > 0 ? (
+        filterBiom.length > 0 ? (
           <table className="App-table">
             <thead>
               <tr>
@@ -30,7 +30,7 @@ export function Table({ search }: { search: string }) {
               </tr>
             </thead>
             <tbody>
-              {filterBacteria.map((biomElem: BiomDto) => (
+              {filterBiom.map((biomElem: BiomDto) => (
                 <Row key={biomElem.name} biomElem={biomElem}></Row>
               ))}
             </tbody>

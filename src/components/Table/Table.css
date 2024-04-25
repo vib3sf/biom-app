@@ -13,6 +13,9 @@
   padding: 0;
   border-collapse: collapse;
   border-spacing: 0;
+  margin-bottom: 50px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .App-table tr {
