@@ -14,9 +14,9 @@ export function Table({ search }: { search: string }) {
   }, [biom]);
 
   return (
-    <div className="table-wrap">
+    <div className="App-table-wrap">
       {biomLoad ? (
-        <table>
+        <table className="App-table">
           <thead>
             <tr>
               <th>Name</th>

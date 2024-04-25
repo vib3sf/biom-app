@@ -15,7 +15,7 @@
   }
 }
 
-.input-box {
+.App-search-box {
   position: relative;
   height: 42px;
   max-width: 900px;
@@ -23,18 +23,18 @@
   border-radius: 8px;
 }
 
-.input-box i,
-.input-box .button {
+.App-search-box i,
+.App-search-box .button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
-.input-box i {
+.App-search-box i {
   left: 20px;
   font-size: 30px;
   color: #707070;
 }
-.input-box input {
+.App-search-box input {
   height: 100%;
   width: 100%;
   outline: none;
@@ -46,15 +46,15 @@
 }
 /* Responsive */
 @media screen and (max-width: 640px) {
-  .input-box {
+  .App-search-box {
     height: 33px;
     margin: 0 70px;
   }
-  .input-box i {
+  .App-search-box i {
     left: 12px;
     font-size: 25px;
   }
-  .input-box input {
+  .App-search-box input {
     padding: 0 32px 0 50px;
   }
 }

@@ -3,7 +3,7 @@ import "./SearchBar.css";
 export function SearchBar({ setSearch }: { setSearch: Function }) {
   return (
     <header className="App-header">
-      <div className="input-box">
+      <div className="App-search-box">
         <i className="uil uil-search"></i>
         <label htmlFor="search"></label>
         <input
