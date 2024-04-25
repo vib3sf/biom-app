@@ -4,8 +4,19 @@ import { BiomDto } from "./bioms.dto";
 export const biomApi = {
   getAllRows: async (): Promise<Array<BiomDto>> => {
     return await Promise.all(
-      biomJson.rows.map(async (_: any, index: number) => await getRow(index))
+      biomJson.rows.map(async (_: any, index: number) => {
+        return await getRow(index);
+      })
     );
+  },
+  getTableHead: (): Array<string> => {
+    return [
+      "name",
+      "tax id",
+      "abundance score",
+      "relative abundance",
+      "unique matches freq",
+    ];
   },
 };
 

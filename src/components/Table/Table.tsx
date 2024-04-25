@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { biomApi } from "../../services/bioms/bioms.api";
 import { BiomDto } from "../../services/bioms/bioms.dto";
 import { Row } from "../Row/Row";
-import "./Table.css"
+import "./Table.css";
 
 export function Table({ search }: { search: string }) {
   const [biom, setBiom] = useState<Array<BiomDto>>([]);
@@ -19,11 +19,9 @@ export function Table({ search }: { search: string }) {
         <table className="App-table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Tax ID</th>
-              <th>Abundance score</th>
-              <th>Relative abundance</th>
-              <th>Unique matches frequency</th>
+              {biomApi.getTableHead().map((elem) => (
+                <th key={elem}>{elem}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
@@ -32,7 +30,7 @@ export function Table({ search }: { search: string }) {
                 biomElem.name.toLowerCase().includes(search)
               )
               .map((biomElem: BiomDto) => (
-                <Row biomElem={biomElem}></Row>
+                <Row key={biomElem.name} biomElem={biomElem}></Row>
               ))}
           </tbody>
         </table>
