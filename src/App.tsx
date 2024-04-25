@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import { Table } from "./components/Table";
-import { SearchBar } from "./components/SearchBar";
+import { Table } from "./components/Table/Table";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 
 function App() {
   const [search, setSearch] = useState("");

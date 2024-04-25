@@ -1,3 +1,5 @@
+import "./SearchBar.css";
+
 export function SearchBar({ setSearch }: { setSearch: Function }) {
   return (
     <header className="App-header">

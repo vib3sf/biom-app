@@ -1,0 +1,60 @@
+.App-header {
+  background-color: #282c34;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@media screen and (max-width: 640px) {
+  .App-header {
+    height: 60px;
+  }
+}
+
+.input-box {
+  position: relative;
+  height: 42px;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.input-box i,
+.input-box .button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.input-box i {
+  left: 20px;
+  font-size: 30px;
+  color: #707070;
+}
+.input-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  padding: 0 35px 0 65px;
+  background-color: transparent;
+}
+/* Responsive */
+@media screen and (max-width: 640px) {
+  .input-box {
+    height: 33px;
+    margin: 0 70px;
+  }
+  .input-box i {
+    left: 12px;
+    font-size: 25px;
+  }
+  .input-box input {
+    padding: 0 32px 0 50px;
+  }
+}

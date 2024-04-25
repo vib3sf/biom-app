@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { biomApi } from "../services/bioms/bioms.api";
-import { BiomDto } from "../services/bioms/bioms.dto";
-import { Row } from "./Row";
+import { biomApi } from "../../services/bioms/bioms.api";
+import { BiomDto } from "../../services/bioms/bioms.dto";
+import { Row } from "../Row/Row";
+import "./Table.css"
 
 export function Table({ search }: { search: string }) {
   const [biom, setBiom] = useState<Array<BiomDto>>([]);

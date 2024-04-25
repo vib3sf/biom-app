@@ -1,4 +1,5 @@
-import { BiomDto } from "../services/bioms/bioms.dto";
+import { BiomDto } from "../../services/bioms/bioms.dto";
+import "./Row.css"
 
 export function Row({ biomElem }: { biomElem: BiomDto }) {
   return (
@@ -7,7 +8,7 @@ export function Row({ biomElem }: { biomElem: BiomDto }) {
       <td data-label="tax id">{biomElem.taxId}</td>
       <td data-label="abundance score">{biomElem.abundanceScore}</td>
       <td data-label="relative abundance">{biomElem.relativeAbundance}</td>
-      <td data-label="unique matches frequency">
+      <td data-label="unique matches freq">
         {biomElem.uniqeMatchesFrequency}
       </td>
     </tr>
