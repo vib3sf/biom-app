@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/biom-app/static/css/main.c9f43f74.css",
+    "main.js": "/biom-app/static/js/main.9387e250.js",
+    "index.html": "/biom-app/index.html",
+    "main.c9f43f74.css.map": "/biom-app/static/css/main.c9f43f74.css.map",
+    "main.9387e250.js.map": "/biom-app/static/js/main.9387e250.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9f43f74.css",
+    "static/js/main.9387e250.js"
+  ]
+}
