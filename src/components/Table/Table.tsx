@@ -8,6 +8,10 @@ export function Table({ search }: { search: string }) {
   const [biom, setBiom] = useState<Array<BiomDto>>([]);
   const [biomLoad, setBiomLoad] = useState(false);
 
+  const filterBacteria = biom.filter((biomElem: BiomDto) =>
+    biomElem.name.toLowerCase().includes(search)
+  );
+
   useEffect(() => {
     if (biom.length !== 0) setBiomLoad(true);
     else setTimeout(async () => setBiom(await biomApi.getAllRows()), 1000);
@@ -16,24 +20,24 @@ export function Table({ search }: { search: string }) {
   return (
     <div className="App-table-wrap">
       {biomLoad ? (
-        <table className="App-table">
-          <thead>
-            <tr>
-              {biomApi.getTableHead().map((elem) => (
-                <th key={elem}>{elem}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {biom
-              .filter((biomElem: BiomDto) =>
-                biomElem.name.toLowerCase().includes(search)
-              )
-              .map((biomElem: BiomDto) => (
+        filterBacteria.length > 0 ? (
+          <table className="App-table">
+            <thead>
+              <tr>
+                {biomApi.getTableHead().map((elem) => (
+                  <th key={elem}>{elem}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {filterBacteria.map((biomElem: BiomDto) => (
                 <Row key={biomElem.name} biomElem={biomElem}></Row>
               ))}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        ) : (
+          <p>There are no such bacteria in the table :(</p>
+        )
       ) : (
         <p>Loading...</p>
       )}
