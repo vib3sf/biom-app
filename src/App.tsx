@@ -1,19 +1,13 @@
 import { useState } from "react";
 import "./App.css";
 import { Table } from "./components/Table";
+import { SearchBar } from "./components/SearchBar";
 
 function App() {
   const [search, setSearch] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <label htmlFor="search"></label>
-        <input
-          onChange={(event) => setSearch(event.target.value.toLowerCase())}
-          placeholder="Search..."
-          id="search"
-        ></input>
-      </header>
+      <SearchBar setSearch={setSearch}></SearchBar>
       <Table search={search}></Table>
     </div>
   );
