@@ -117,7 +117,7 @@ table th {
   font-size: 18px;
   font-weight: 400;
   border: none;
-  padding: 0 75px 0 65px;
+  padding: 0 35px 0 65px;
   background-color: transparent;
 }
 /* Responsive */
@@ -131,11 +131,6 @@ table th {
     font-size: 25px;
   }
   .input-box input {
-    padding: 0 12px 0 50px;
-  }
-  .input-box .button {
-    right: 12px;
-    font-size: 14px;
-    padding: 8px 18px;
+    padding: 0 32px 0 50px;
   }
 }
