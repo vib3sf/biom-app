@@ -54,7 +54,7 @@ table th {
   letter-spacing: 1px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   table {
     border: 0;
   }
@@ -121,7 +121,7 @@ table th {
   background-color: transparent;
 }
 /* Responsive */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .input-box {
     height: 33px;
     margin: 0 70px;
