@@ -31,13 +31,13 @@
 
 .App-table th {
   color: #fff;
-  background-color: #444;
+  background-color: #282c34;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 1px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 700px) {
   .App-table {
     border: 0;
   }

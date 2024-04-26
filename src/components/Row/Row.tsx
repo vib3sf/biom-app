@@ -6,7 +6,7 @@ import "./Row.css";
 export function Row({ biomElem }: { biomElem: BiomDto }) {
   const [isActive, setIsActive] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const collapseRow = windowWidth < 640;
+  const collapseRow = windowWidth < 700;
 
   useEffect(() => {
     const handleWindowResize = () => {
