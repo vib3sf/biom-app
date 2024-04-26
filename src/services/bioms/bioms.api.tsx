@@ -31,10 +31,10 @@ const getRow = async (index: number): Promise<BiomDto> => {
 };
 
 const getName = async (index: number): Promise<string> =>
-  biomJson.rows[index].metadata.title;
+  biomJson.rows[index].metadata.lineage[7].name;
 
 const getTaxId = async (index: number): Promise<number> =>
-  biomJson.rows[index].metadata.tax_id;
+  biomJson.rows[index].metadata.lineage[7].tax_id;
 
 const getAbundanceScore = async (index: number): Promise<number> =>
   biomJson.data[index * 3 + 1][2];
