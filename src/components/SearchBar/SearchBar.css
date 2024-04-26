@@ -17,8 +17,7 @@
   border-radius: 8px;
 }
 
-.App-search-box i,
-.App-search-box .button {
+.App-search-box i {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -38,7 +37,7 @@
   padding: 0 35px 0 65px;
   background-color: transparent;
 }
-/* Responsive */
+
 @media screen and (max-width: 700px) {
   .App-header {
     height: 60px;
