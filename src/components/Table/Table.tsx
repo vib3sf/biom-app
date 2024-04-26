@@ -26,7 +26,7 @@ export function Table({ search }: { search: string }) {
           <table className="App-table">
             <thead>
               <tr>
-                {biomApi.getTableHead().map((elem) => (
+                {biomApi.getTableHead().map((elem: string) => (
                   <th key={elem}>{elem}</th>
                 ))}
               </tr>

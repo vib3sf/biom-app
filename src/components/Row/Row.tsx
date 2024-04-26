@@ -35,11 +35,13 @@ export function Row({ biomElem }: { biomElem: BiomDto }) {
       )}
       {isActive || !collapseRow ? (
         <tr>
-          {Object.values(biomElem).map((elem, index) => (
-            <td key={index} data-label={biomApi.getTableHead()[index]}>
-              {elem}
-            </td>
-          ))}
+          {Object.values(biomElem).map(
+            (elem: number | string, index: number) => (
+              <td key={index} data-label={biomApi.getTableHead()[index]}>
+                {elem}
+              </td>
+            )
+          )}
         </tr>
       ) : (
         ""
