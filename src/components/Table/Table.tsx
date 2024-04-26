@@ -13,8 +13,10 @@ export function Table({ search }: { search: string }) {
   );
 
   useEffect(() => {
+    const fetchBiom = async () => setBiom(await biomApi.getAllRows());
+
     if (biom.length !== 0) setBiomLoad(true);
-    else setTimeout(async () => setBiom(await biomApi.getAllRows()), 1000);
+    else fetchBiom();
   }, [biom]);
 
   return (
