@@ -1,5 +1,5 @@
 import biomJson from "../../assets/biom.json";
-import { BiomDto } from "./bioms.dto";
+import { BiomDto } from "./biom.dto";
 
 export const biomApi = {
   getAllRows: async (): Promise<Array<BiomDto>> => {

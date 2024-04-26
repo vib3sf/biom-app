@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { biomApi } from "../../services/bioms/bioms.api";
-import { BiomDto } from "../../services/bioms/bioms.dto";
+import { biomApi } from "../../services/biom/biom.api";
+import { BiomDto } from "../../services/biom/biom.dto";
 import "./Row.css";
 
 export function Row({ biomElem }: { biomElem: BiomDto }) {
