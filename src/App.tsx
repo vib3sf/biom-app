@@ -3,13 +3,14 @@ import "./App.css";
 import { Table } from "./components/Table/Table";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 import { Footer } from "./components/Footer/Footer";
+import { useInput } from "./hooks/useInput";
 
 function App() {
-  const [search, setSearch] = useState("");
+  const {value, onChange} = useInput("");
   return (
     <div className="App">
-      <SearchBar setSearch={setSearch}></SearchBar>
-      <Table search={search}></Table>
+      <SearchBar onChange={onChange}></SearchBar>
+      <Table search={value}></Table>
       <Footer></Footer>
     </div>
   );
