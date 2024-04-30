@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { biomApi } from "../../services/biom/biom.api";
 import { BiomDto } from "../../services/biom/biom.dto";
 import { Row } from "../Row/Row";
@@ -6,7 +6,7 @@ import "./Table.css";
 
 export function Table({ search }: { search: string }) {
   const [biom, setBiom] = useState<Array<BiomDto>>([]);
-  const [biomLoad, setBiomLoad] = useState(false);
+  const biomLoad = useRef(false);
 
   const filterBiom = biom.filter((biomElem: BiomDto) =>
     biomElem.name.toLowerCase().includes(search)
@@ -15,9 +15,9 @@ export function Table({ search }: { search: string }) {
   useEffect(() => {
     const fetchBiom = async () => setBiom(await biomApi.getAllRows());
 
-    if (biom.length !== 0) setBiomLoad(true);
-    else fetchBiom();
-  }, [biom]);
+    biomLoad.current = true;
+    fetchBiom();
+  }, []);
 
   return (
     <div className="App-table-wrap">
