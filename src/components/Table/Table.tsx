@@ -3,10 +3,13 @@ import { biomApi } from "../../services/biom/biom.api";
 import { BiomDto } from "../../services/biom/biom.dto";
 import { Row } from "../Row/Row";
 import "./Table.css";
+import { useSelector } from "react-redux";
+import { SearchState } from "../../store";
 
-export function Table({ search }: { search: string }) {
+export function Table() {
   const [biom, setBiom] = useState<Array<BiomDto>>([]);
   const biomLoad = useRef(false);
+  const search = useSelector<SearchState, string>((state: SearchState) => state.searcher.search);
 
   const filterBiom = biom.filter((biomElem: BiomDto) =>
     biomElem.name.toLowerCase().includes(search)
